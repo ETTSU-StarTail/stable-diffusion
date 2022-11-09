@@ -174,7 +174,19 @@ parser.add_argument(
     choices=["ddim"],
     default="ddim",
 )
+
+# Add ckpt config.
+# I want to switching model (ettsu)
+parser.add_argument(
+    "--ckpt",
+    type=str,
+    default=ckpt,
+    help="path to checkpoint of model",
+)
+
 opt = parser.parse_args()
+
+ckpt = opt.ckpt
 
 tic = time.time()
 os.makedirs(opt.outdir, exist_ok=True)
